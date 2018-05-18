@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Angular</title>
+	<link rel="stylesheet" type="text/css" href="ag1.css">
+</head>
+<body>
+	<div id="bigContain">
+		<div id="form" ng-controller="todoController as td">
+			<h1>TODO List</h1>
+			<h4>A place to store things you have to do!</h4>
+			<input type="text" name="filter" placeholder="Filter your to-dos">
+			<div class="task" ng-repeat="todo in td.todoList">
+				<div class="gulliver" ng-class="completed">
+					<p>{{ todo.id }}.</p>
+					<button class="completeBtn" ng-model="completed">COMPLETE</button>
+					<p>{{ todo.task }}</p>
+				</div>
+				<button class="delete">x</button>
+			</div>
+			<input type="text" name="add" placeholder="Add your to do">
+			<button id="add">Add</button>
+		</div>
+	</div>
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js'></script>
+	<script src="module.js"></script>
+	<script src="control.js"></script>
+</body>
+</html>
