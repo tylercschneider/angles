@@ -57,7 +57,6 @@ input {
 	flex-direction: row;
 	justify-content: flex-start;
 	width: 80%
-
 }
 .completeBtn {
 	border: 1px solid hotpink;
@@ -66,10 +65,13 @@ input {
 	border-radius: 10px;
 	padding: 0px 5px;
 	margin: 8px 20px;
+	width: 100px;
 }
 .completed {
 	display: none;
-
+}
+.completedP {
+	text-decoration: line-through;
 }
 .delete {
 	background-color: transparent;
