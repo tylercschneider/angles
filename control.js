@@ -4,15 +4,20 @@
 	function todoController() {
 		let toDoList = this;
 		toDoList.todos = [
-			{"id": 0, "task": "stuff to do 1", "complete": true},
-			{"id": 1, "task": "fight", "complete": false},
-			{"id": 2, "task": "eat", "complete": true},
-			{"id": 3, "task": "program", "complete": false},
-			{"id": 4, "task": "learn", "complete": true},
-			{"id": 5, "task": "sleep", "complete": false},
-			{"id": 6, "task": "something", "complete": false},
-			{"id": 7, "task": "words", "complete": false},
-			{"id": 8,"task": "stuff to do 2", "complete": true}
+			{
+			"id": 0, 
+			"task": "stuff to do 1", 
+			"complete": true, 
+			"edit": false
+			},
+			{"id": 1, "task": "fight", "complete": false, "edit": false},
+			{"id": 2, "task": "eat", "complete": true, "edit": false},
+			{"id": 3, "task": "program", "complete": false, "edit": false},
+			{"id": 4, "task": "learn", "complete": true, "edit": false},
+			{"id": 5, "task": "sleep", "complete": false, "edit": false},
+			{"id": 6, "task": "something", "complete": false, "edit": false},
+			{"id": 7, "task": "words", "complete": false, "edit": false},
+			{"id": 8,"task": "stuff to do 2", "complete": true, "edit": false}
 		];
 		toDoList.setDone = function(id) {
 			toDoList.todos[id].complete = true;
@@ -27,14 +32,12 @@
 			let item = {
 				"id": toDoList.todos.length,
 				"task": task,
-				"complete": false
+				"complete": false,
+				"edit": false
 			};
 			toDoList.todos.push(item);
 			let newTask = document.getElementById('newTask');
 			newTask.value = '';
-		}
-		toDoList.filter = function() {
-			return 0;
 		}
 	}
 	angular

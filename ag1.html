@@ -9,21 +9,40 @@
 		<div id="form" ng-controller="todoController as toDoList">
 			<h1>TODO List</h1>
 			<h4>A place to store things you have to do!</h4>
-			<input type="text" name="filter" placeholder="Filter your to-dos" ng-model="newFilter">
+
+			<!-- FILTER -->
+			<input class="bigInput" type="text" name="filter" placeholder="Filter your to-dos" ng-model="newFilter">
 			<div class="task" ng-repeat="todo in toDoList.todos | filter: newFilter track by todo.id">
 
 				<div class="gulliver">
-
+					<!-- NUMBER OF TASK -->
 					<p>{{ todo.id +1 }}.</p>
 
-					<button class="completeBtn" ng-class="{completed: todo.complete}" ng-click="toDoList.setDone(todo.id)">COMPLETE</button>
+					<!-- COMPLETE BUTTON -->
+					<button class="completeBtn" ng-class="{completed: todo.complete}" ng-hide="todo.edit" ng-click="toDoList.setDone(todo.id)">COMPLETE</button>
 
-					<p class=""ng-class="{completedP: todo.complete}">{{ todo.task }}</p>
+					<!-- TASK -->
+					<p ng-class="{completedP: todo.complete}" ng-hide="todo.edit">{{ todo.task }}</p>
+
+					<!-- TASK EDIT FIELD -->
+					<input class="editField" type="text" name="editField" value="{{todo.task}}" ng-show="todo.edit" ng-model="todo.task">
+
 				</div>
 
+				<!-- EDIT BUTTON -->
+				<button class="edit" ng-class="{completed: todo.complete}" ng-hide="todo.edit" ng-click="todo.edit=true">edit</button>
+
+				<!-- SAVE BUTTON -->
+				<button class="save" ng-show="todo.edit" ng-click="todo.edit=false">save</button>
+
+				<!-- DELETE BUTTON -->
 				<button class="delete" ng-click="toDoList.remove(todo.id)">x</button>
+
 			</div>
-			<input id="newTask" type="text" name="add" placeholder="Add your to do" ng-model="newTask">
+			<!-- INPUT NEW TASK FIELD -->
+			<input id="newTask" class="bigInput" type="text" name="add" placeholder="Add your to do" ng-model="newTask">
+
+			<!-- SUBMIT NEW TASK -->
 			<button id="add" ng-click="toDoList.add(newTask)">Add</button>
 		</div>
 	</div>
