@@ -23,11 +23,19 @@
 				toDoList.todos[i].id = i;
 			}
 		}
-		// toDoList.add() = function() {
-		// 	let item = {
-		// 		"id": id,
-		// 	}
-		// }
+		toDoList.add = function(task) {
+			let item = {
+				"id": toDoList.todos.length,
+				"task": task,
+				"complete": false
+			};
+			toDoList.todos.push(item);
+			let newTask = document.getElementById('newTask');
+			newTask.value = '';
+		}
+		toDoList.filter = function() {
+			return 0;
+		}
 	}
 	angular
 	.module("app")

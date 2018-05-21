@@ -9,22 +9,22 @@
 		<div id="form" ng-controller="todoController as toDoList">
 			<h1>TODO List</h1>
 			<h4>A place to store things you have to do!</h4>
-			<input type="text" name="filter" placeholder="Filter your to-dos">
-			<div class="task" ng-repeat="todo in toDoList.todos">
+			<input type="text" name="filter" placeholder="Filter your to-dos" ng-model="newFilter">
+			<div class="task" ng-repeat="todo in toDoList.todos | filter: newFilter track by todo.id">
 
 				<div class="gulliver">
 
 					<p>{{ todo.id +1 }}.</p>
 
-				<button class="completeBtn" ng-class="{completed: todo.complete}" ng-click="toDoList.setDone(todo.id)">COMPLETE</button>
+					<button class="completeBtn" ng-class="{completed: todo.complete}" ng-click="toDoList.setDone(todo.id)">COMPLETE</button>
 
 					<p class=""ng-class="{completedP: todo.complete}">{{ todo.task }}</p>
 				</div>
 
 				<button class="delete" ng-click="toDoList.remove(todo.id)">x</button>
 			</div>
-			<input type="text" name="add" placeholder="Add your to do">
-			<button id="add">Add</button>
+			<input id="newTask" type="text" name="add" placeholder="Add your to do" ng-model="newTask">
+			<button id="add" ng-click="toDoList.add(newTask)">Add</button>
 		</div>
 	</div>
 	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js'></script>
