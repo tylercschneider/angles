@@ -36,6 +36,7 @@
 				"edit": false
 			};
 			toDoList.todos.push(item);
+			console.log(toDoList);
 			let newTask = document.getElementById('newTask');
 			newTask.value = '';
 		}
